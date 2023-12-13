@@ -1,8 +1,7 @@
 async function getJsonFromFile(file) {
     try {
       const res = await fetch(file);
-      const data = await res.json();
-      return data;
+      return await res.json();
     } catch (error) {
       throw error;
     }
@@ -10,9 +9,7 @@ async function getJsonFromFile(file) {
   
   async function getJson(file) {  
     try {
-      const result = await getJsonFromFile(file);
-      
-      return result;
+      return await getJsonFromFile(file);
     } catch (error) {
       console.error("Error:", error);      
       throw error;
