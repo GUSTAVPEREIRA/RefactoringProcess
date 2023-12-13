@@ -1,6 +1,6 @@
 async function getJsonFromFile(file) {
     try {
-      const res = await fetch(file);
+      let res = await fetch(file);
       return await res.json();
     } catch (error) {
       throw error;
