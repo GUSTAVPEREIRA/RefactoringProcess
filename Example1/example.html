@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import JavaScript Function</title>
+</head>
+
+<body>
+    <script src="example1.js"></script>
+    <script src="openfile.js"></script>
+
+    <script>
+
+        (async () => {
+            let invoices = await getJson("invoices.json");
+            let plays = await getJson("plays.json");
+            let result = statement(invoices[0], plays);            
+            
+            console.table(result);
+        })();        
+    </script>
+
+</body>
+
+</html>
