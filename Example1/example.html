@@ -5,11 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Import JavaScript Function</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #report-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
     <script src="example1.js"></script>
     <script src="openfile.js"></script>
+
+    <article id="report-container">
+        <h1>Actors company</h1>
+        <p id="report-result"></p>
+    </article>
 
     <script>
 
@@ -19,6 +45,7 @@
             let result = statement(invoices[0], plays);            
             
             console.table(result);
+            document.getElementById("report-result").innerHTML = result;
         })();        
     </script>
 
