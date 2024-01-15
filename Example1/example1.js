@@ -1,18 +1,8 @@
-const data = {
-    customer: null,
-    performances: null,
-    plays: null
-};
+const data = {};
 
 function statement(invoice, plays) {
     
-    data.customer = invoice.customer,
-    data.plays = plays;
-    data.performances = invoice.performances.map(enrichPerformance);
-    data.totalAmount = totalAmount(data);
-    data.totalVolumeCredits = totalVolumeCredits(data);
-
-    return renderPlainText(data);
+    return renderPlainText(createStatementData(invoice, plays));
 }
 
 function enrichPerformance(aPerformance) {
@@ -22,6 +12,16 @@ function enrichPerformance(aPerformance) {
     result.volumeCredits = volumeCreditsFor(result);
 
     return result;
+}
+
+function createStatementData(invoice, plays) {
+    data.customer = invoice.customer,
+    data.plays = plays;
+    data.performances = invoice.performances.map(enrichPerformance);
+    data.totalAmount = totalAmount(data);
+    data.totalVolumeCredits = totalVolumeCredits(data);
+
+    return data;
 }
 
 function renderPlainText(data) {
