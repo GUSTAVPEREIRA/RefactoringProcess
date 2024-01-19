@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="openfile.js"></script>
     <title>Import JavaScript Function</title>
     <style>
         body {
@@ -29,22 +30,19 @@
 </head>
 
 <body>
-    <script src="example1.js"></script>
-    <script src="openfile.js"></script>
-
     <article id="report-container">
         <h1>Actors company</h1>
         <p id="report-result"></p>
     </article>
 
-    <script>
+    <script type="module">
+        import { statement } from './statement.js';
 
-        (async () => {
+        (async () => {        
             let invoices = await getJson("invoices.json");
             let plays = await getJson("plays.json");
             let result = statement(invoices[0], plays);            
-            
-            console.table(result);
+                        
             document.getElementById("report-result").innerHTML = result;
         })();        
     </script>
