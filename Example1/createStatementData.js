@@ -15,7 +15,7 @@ const result = {
  * @returns {Object}
  */
 export default function createStatementData(invoice, plays) {
-    result.customer = invoice.customer,
+    result.customer = invoice.customer;
     result.plays = plays;
     result.performances = invoice.performances.map(enrichPerformance);
     result.totalAmount = totalAmount();
@@ -30,7 +30,7 @@ export default function createStatementData(invoice, plays) {
  * @returns {Object}
  */
 function enrichPerformance(aPerformance) {
-    const result = {...aPerformance};
+    const result = { ...aPerformance };
     result.play = playFor(result);
     result.amount = amountFor(result);
     result.volumeCredits = volumeCreditsFor(result);
@@ -43,8 +43,8 @@ function enrichPerformance(aPerformance) {
  * @returns {Number}
  */
 function totalAmount() {
-   return result.performances
-       .reduce((total, p) => total + p.amount, 0);
+    return result.performances
+        .reduce((total, p) => total + p.amount, 0);
 }
 
 /**
@@ -52,8 +52,8 @@ function totalAmount() {
  * @returns {Number}
  */
 function totalVolumeCredits() {
-   return result.performances
-       .reduce((total, p) => total + p.volumeCredits, 0);
+    return result.performances
+        .reduce((total, p) => total + p.volumeCredits, 0);
 }
 
 /**

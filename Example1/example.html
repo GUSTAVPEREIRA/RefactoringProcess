@@ -36,12 +36,12 @@
     </article>
 
     <script type="module">
-        import { statement } from './statement.js';
+        import { statement, htmlStatement } from './statement.js';
 
         (async () => {        
             let invoices = await getJson("invoices.json");
             let plays = await getJson("plays.json");
-            let result = statement(invoices[0], plays);            
+            let result = htmlStatement(invoices[0], plays);            
                         
             document.getElementById("report-result").innerHTML = result;
         })();        
