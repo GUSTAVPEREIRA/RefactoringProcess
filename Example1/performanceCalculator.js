@@ -12,7 +12,7 @@ class PerformanceCalculator {
         this.play = aPlay;
     }
 
-    
+
     get amount() {
         let result = 0;
 
@@ -34,6 +34,15 @@ class PerformanceCalculator {
             default:
                 throw new Error(`unknown type: ${this.play.type}`);
         }
+
+        return result;
+    }
+
+    get volumeCredits() {
+        let result = 0;
+        result += Math.max(this.performance.audience - 30, 0);
+
+        if ("comedy" === this.play.type) result += Math.floor(this.performance.audience / 5);
 
         return result;
     }

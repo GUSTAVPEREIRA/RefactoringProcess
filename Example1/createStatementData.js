@@ -34,7 +34,7 @@ function enrichPerformance(aPerformance) {
     const result = { ...aPerformance };
     result.play = calculator.play;
     result.amount = calculator.amount;
-    result.volumeCredits = volumeCreditsFor(result);
+    result.volumeCredits = calculator.volumeCredits;
 
     return result;
 }
@@ -64,18 +64,4 @@ function totalVolumeCredits() {
  */
 function playFor(aPerformance) {
     return result.plays[aPerformance.playID];
-}
-
-/**
- * 
- * @param {Object} perf 
- * @returns {Number}
- */
-function volumeCreditsFor(perf) {
-    let result = 0;
-    result += Math.max(perf.audience - 30, 0);
-
-    if ("comedy" === perf.play.type) result += Math.floor(perf.audience / 5);
-
-    return result;
 }
