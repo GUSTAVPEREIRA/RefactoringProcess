@@ -30,9 +30,10 @@ export default function createStatementData(invoice, plays) {
  * @returns {Object}
  */
 function enrichPerformance(aPerformance) {
+    const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
     const result = { ...aPerformance };
-    result.play = playFor(result);
-    result.amount = amountFor(result);
+    result.play = calculator.play;
+    result.amount = calculator.amount;
     result.volumeCredits = volumeCreditsFor(result);
 
     return result;
@@ -63,36 +64,6 @@ function totalVolumeCredits() {
  */
 function playFor(aPerformance) {
     return result.plays[aPerformance.playID];
-}
-
-/**
- * 
- * @param {Object} aPerformance 
- * @returns {Number}
- */
-function amountFor(aPerformance) {
-    let result = 0;
-
-    switch (aPerformance.play.type) {
-        case "tragedy":
-            result = 40000;
-            if (aPerformance.audience > 30) {
-                result += 10000 + 500 * (aPerformance.audience - 20);
-            }
-            result += 300 * aPerformance.audience;
-            break;
-        case "comedy":
-            result = 30000;
-            if (aPerformance.audience > 30) {
-                result += 10000 + 500 * (aPerformance.audience - 20);
-            }
-            result += 300 * aPerformance.audience;
-            break;
-        default:
-            throw new Error(`unknown type: ${aPerformance.play.type}`);
-    }
-
-    return result;
 }
 
 /**
