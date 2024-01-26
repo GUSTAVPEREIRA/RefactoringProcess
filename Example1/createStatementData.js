@@ -30,7 +30,7 @@ export default function createStatementData(invoice, plays) {
  * @returns {Object}
  */
 function enrichPerformance(aPerformance) {
-    const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+    const calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
     const result = { ...aPerformance };
     result.play = calculator.play;
     result.amount = calculator.amount;
