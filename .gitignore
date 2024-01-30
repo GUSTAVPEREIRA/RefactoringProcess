@@ -1,0 +1,18 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.RefactoringProcess.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/encodings.xml
+.idea/.idea.RefactoringProcess.dir/.idea/indexLayout.xml
+.idea/.idea.RefactoringProcess.dir/.idea/projectSettingsUpdater.xml
+.idea/.idea.RefactoringProcess.dir/.idea/vcs.xml
+.idea/.idea.RefactoringProcess.dir/.idea/workspace.xml
